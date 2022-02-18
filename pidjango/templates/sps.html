@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	{% load static %}
+  	<link rel="stylesheet" href="{% static 'sps.css'%}">
+</head>
+<body>
+	<div>
+		<div style="position: relative; left: 0; top: 0;">
+			<img src="{% static 'dial.png'%}" class="dial"/>
+			<img src="{% static 'pointer.png'%}" class="pointer"/>
+		</div>
+		<script>
+			function getData() {
+				console.log('getData');    				
+				const xmlhttp = new XMLHttpRequest();
+    				const url = "http://192.168.1.6:8000/sps/data";
+    				xmlhttp.onreadystatechange = function() {
+        				if (this.readyState == 4 && this.status == 200) {
+            					const data = JSON.parse(this.responseText);
+            					console.log(data);
+						setTimeout(getData, 3*1000);
+        				}
+   				}
+    				xmlhttp.open("GET", url, true);
+    				xmlhttp.send();
+		       		
+			}
+			getData();
+		</script>
+	</div>
+</body>
+</html>
+
+

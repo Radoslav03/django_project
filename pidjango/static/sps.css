@@ -1,0 +1,14 @@
+.dial
+    {
+      position: relative;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+.pointer
+    {
+      position: absolute;
+      top: 60px;
+      left: 80px;
+      z-index: 2;
+    }

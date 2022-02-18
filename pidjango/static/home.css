@@ -1,0 +1,46 @@
+.flex-video{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -20px;
+
+}
+.flex-container{
+    display: flex;
+    justify-content: center;
+}
+#logo {
+    display: inline-block;
+    position: relative;
+}
+#logo .speedometer {
+    width: 80px;
+    height: 80px;
+    border-radius: 100%;
+    border: 20px solid rgb(0, 255, 0);
+    border-right: 20px solid rgb(255, 255, 255);
+    border-bottom: 20px solid rgb(255, 255, 255);
+    transform: rotate(45deg);
+    display: inline-block;
+}
+#logo .pointer {
+    width: 5px;
+    height: 50px;
+    background: #000000;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-top-left-radius: 100%;
+    border-top-right-radius: 100%;
+    display: inline-block;
+    left: 57px;
+    position: absolute;
+    top: 10px;
+    transform:rotate(var(--value));
+    transform-origin:bottom;
+}
+#logo .number{
+    font-size: 2vw;
+    margin-top: -60px;
+    margin-left: 50px;
+    position: absolute;
+}
