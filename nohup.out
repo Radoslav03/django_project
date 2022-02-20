@@ -1,0 +1,95 @@
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+Not Found: /
+[18/Feb/2022 21:06:18] "GET / HTTP/1.1" 404 2488
+[18/Feb/2022 21:06:22] "GET /home/ HTTP/1.1" 200 1921
+[18/Feb/2022 21:06:24] "GET /home/ HTTP/1.1" 200 1921
+mmal: mmal_vc_port_enable: failed to enable port vc.null_sink:in:0(OPQV): ENOSPC
+mmal: mmal_port_enable: failed to enable connected port (vc.null_sink:in:0(OPQV))0x6f006d00 (ENOSPC)
+mmal: mmal_connection_enable: output port couldn't be enabled
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/usr/lib/python3.9/wsgiref/handlers.py", line 183, in finish_response
+    for data in self.result:
+  File "/home/pi/django_project/pidjango/views.py", line 36, in cam
+    with picamera.PiCamera(resolution='1280x720', framerate=30) as camera:
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/camera.py", line 433, in __init__
+    self._init_preview()
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/camera.py", line 512, in _init_preview
+    self._preview = PiNullSink(
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/renderers.py", line 558, in __init__
+    self.renderer.inputs[0].connect(source).enable()
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/mmalobj.py", line 2210, in enable
+    mmal_check(
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/exc.py", line 184, in mmal_check
+    raise PiCameraMMALError(status, prefix)
+picamera.exc.PiCameraMMALError: Failed to enable connection: Out of resources
+[18/Feb/2022 21:06:24] "GET /stream/ HTTP/1.1" 500 59
+[18/Feb/2022 21:06:25] "GET /home/ HTTP/1.1" 200 1921
+[18/Feb/2022 21:06:35] "GET /home/ HTTP/1.1" 200 1921
+[18/Feb/2022 21:07:03] "GET /home/ HTTP/1.1" 200 1921
+[18/Feb/2022 21:07:03] "GET /static/home.css HTTP/1.1" 304 0
+[18/Feb/2022 21:07:52] "GET /home/ HTTP/1.1" 200 1921
+Not Found: /
+[18/Feb/2022 21:08:39] "GET / HTTP/1.1" 404 2488
+[18/Feb/2022 21:15:03] code 400, message Bad request version ('À\x14À')
+[18/Feb/2022 21:15:03] You're accessing the development server over HTTPS, but it only supports HTTP.
+
+Not Found: /
+[19/Feb/2022 00:11:24] "GET / HTTP/1.1" 404 2488
+Not Found: /favicon.ico
+[19/Feb/2022 01:04:24] "GET /favicon.ico HTTP/1.1" 404 2539
+Not Found: /
+[19/Feb/2022 06:21:24] "GET / HTTP/1.1" 404 2483
+Not Found: /
+[19/Feb/2022 08:42:37] "GET / HTTP/1.1" 404 2488
+Not Found: /favicon.ico
+[19/Feb/2022 08:42:38] "GET /favicon.ico HTTP/1.1" 404 2539
+[19/Feb/2022 08:43:10] "GET /stream HTTP/1.1" 301 0
+mmal: mmal_vc_port_enable: failed to enable port vc.null_sink:in:0(OPQV): ENOSPC
+mmal: mmal_port_enable: failed to enable connected port (vc.null_sink:in:0(OPQV))0x6f010ba0 (ENOSPC)
+mmal: mmal_connection_enable: output port couldn't be enabled
+Traceback (most recent call last):
+  File "/usr/lib/python3.9/wsgiref/handlers.py", line 138, in run
+    self.finish_response()
+  File "/usr/lib/python3.9/wsgiref/handlers.py", line 183, in finish_response
+    for data in self.result:
+  File "/home/pi/django_project/pidjango/views.py", line 36, in cam
+    with picamera.PiCamera(resolution='1280x720', framerate=30) as camera:
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/camera.py", line 433, in __init__
+    self._init_preview()
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/camera.py", line 512, in _init_preview
+    self._preview = PiNullSink(
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/renderers.py", line 558, in __init__
+    self.renderer.inputs[0].connect(source).enable()
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/mmalobj.py", line 2210, in enable
+    mmal_check(
+  File "/home/pi/.local/lib/python3.9/site-packages/picamera/exc.py", line 184, in mmal_check
+    raise PiCameraMMALError(status, prefix)
+picamera.exc.PiCameraMMALError: Failed to enable connection: Out of resources
+[19/Feb/2022 08:43:31] "GET /stream/ HTTP/1.1" 500 59
+Not Found: /stream/home
+[19/Feb/2022 08:43:58] "GET /stream/home HTTP/1.1" 404 2539
+[19/Feb/2022 08:44:15] "GET /home HTTP/1.1" 301 0
+[19/Feb/2022 08:44:15] "GET /home/ HTTP/1.1" 200 1921
+[19/Feb/2022 08:44:16] "GET /static/home.css HTTP/1.1" 200 992
+[19/Feb/2022 10:02:23,108] - Broken pipe from ('167.94.138.62', 51024)
+
+Not Found: /
+[19/Feb/2022 10:02:24] "GET / HTTP/1.1" 404 2488
+[19/Feb/2022 10:02:24,444] - Broken pipe from ('167.94.138.62', 48848)
+
+Not Found: /
+[19/Feb/2022 10:02:24] "GET / HTTP/1.1" 404 2488
+[19/Feb/2022 10:02:25] code 505, message Invalid HTTP version (2.0)
+[19/Feb/2022 10:02:25] "PRI * HTTP/2.0" 505 -
+Watching for file changes with StatReloader
+Not Found: /
+[20/Feb/2022 18:43:43] "GET / HTTP/1.1" 404 2489
+Not Found: /favicon.ico
+[20/Feb/2022 18:43:43] "GET /favicon.ico HTTP/1.1" 404 2540
+[20/Feb/2022 18:43:52] "GET /home HTTP/1.1" 301 0
+[20/Feb/2022 18:43:52] "GET /home/ HTTP/1.1" 200 1921
+[20/Feb/2022 18:43:52] "GET /static/home.css HTTP/1.1" 200 992
+[20/Feb/2022 18:44:17] "GET /home/ HTTP/1.1" 200 1921

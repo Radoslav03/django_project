@@ -63,11 +63,10 @@
     </div>
 
     <script>
-        function map(value, low1, high1, low2, high2) {
-            return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-        }
-
-        function getData() {
+	function map(value, low1, high1, low2, high2) {
+    		return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+	}
+	function getData() {
             console.log('getData');
             const xmlhttp = new XMLHttpRequest();
             const url = "http://192.168.1.10:8000/sps/data";
@@ -75,8 +74,8 @@
                 if (this.readyState == 4 && this.status == 200) {
                     const data = JSON.parse(this.responseText);
                     console.log(data);
-                    for(var i = 0 in data){
-                        var deg_value = map(Object.values(data)[i], 0, 500, -90, 90);
+                    for(var i = 0; i<=8; i++){
+			var deg_value = map(Math.abs(Object.values(data)[i]), 0, 500, -90, 90);
                         document.getElementById(i).style = "--value: " + deg_value + "deg";
                     }
                     console.log(Object.values(data)[0]);
