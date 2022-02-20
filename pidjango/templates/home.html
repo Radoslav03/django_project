@@ -64,8 +64,8 @@
         		if (this.readyState == 4 && this.status == 200) {
             		const data = JSON.parse(this.responseText);
             		console.log(data);
-					document.getElementById("1").style="--value: "+ Object.keys(data)[0] + "deg";
-                    console.log(Object.value(data)[0]);
+					document.getElementById("1").style="--value: "+ Object.values(data)[0] + "deg";
+                    console.log(Object.values(data)[0]);
                     setTimeout(getData, 3*1000);
         		}
    			}
