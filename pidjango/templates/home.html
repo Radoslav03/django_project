@@ -10,7 +10,7 @@
         <div id="logo" >
             <span class="speedometer"></span>
             <!-- pointer value between -90 and 90deg -->
-            <span id = 1 class="pointer" style="--value: -90deg;"></span>
+            <span id = 1 class="pointer" ></span>
             <!-- number value between 0 and 5000-->
             <h1 class="number"> 100 </h1>
         </div>
@@ -64,7 +64,7 @@
         		if (this.readyState == 4 && this.status == 200) {
             		const data = JSON.parse(this.responseText);
             		console.log(data);
-					
+					document.getElementById("1").style="--value: "+ Object.keys()[0] + "deg";
                     setTimeout(getData, 3*1000);
         		}
    			}
