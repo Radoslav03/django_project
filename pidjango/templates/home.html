@@ -63,8 +63,8 @@
     </div>
 
     <script>
-        Number.prototype.map = function (in_min, in_max, out_min, out_max) {
-            return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+        function map(value, low1, high1, low2, high2) {
+            return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
         }
 
         function getData() {
