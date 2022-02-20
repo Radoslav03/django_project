@@ -65,6 +65,7 @@
             		const data = JSON.parse(this.responseText);
             		console.log(data);
 					document.getElementById("1").style="--value: "+ Object.keys(data)[0] + "deg";
+                    console.log(Object.keys(data)[0]);
                     setTimeout(getData, 3*1000);
         		}
    			}
