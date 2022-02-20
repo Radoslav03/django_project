@@ -76,7 +76,8 @@
                     const data = JSON.parse(this.responseText);
                     console.log(data);
                     for(var i = 0 in data){
-                        document.getElementById(i).style = "--value: " + map(Object.values(data)[i], 0, 500, -90, 90) + "deg";
+                        var deg_value = map(Object.values(data)[i], 0, 500, -90, 90);
+                        document.getElementById(i).style = "--value: " + deg_value + "deg";
                     }
                     console.log(Object.values(data)[0]);
                     setTimeout(getData, 3 * 1000);
