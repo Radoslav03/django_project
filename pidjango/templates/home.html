@@ -75,7 +75,7 @@
                 if (this.readyState == 4 && this.status == 200) {
                     const data = JSON.parse(this.responseText);
                     console.log(data);
-                    for(var i = 0 in obj){
+                    for(var i = 0 in data){
                         document.getElementById(i).style = "--value: " + map(Object.values(data)[i], 0, 500, -90, 90) + "deg";
                     }
                     console.log(Object.values(data)[0]);
