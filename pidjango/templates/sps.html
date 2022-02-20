@@ -6,10 +6,6 @@
 </head>
 <body>
 	<div>
-		<div style="position: relative; left: 0; top: 0;">
-			<img src="{% static 'dial.png'%}" class="dial"/>
-			<img src="{% static 'pointer.png'%}" class="pointer"/>
-		</div>
 		<script>
 			function getData() {
 				console.log('getData');    				
@@ -24,7 +20,6 @@
    				}
     				xmlhttp.open("GET", url, true);
     				xmlhttp.send();
-		       		
 			}
 			getData();
 		</script>
