@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     {% load static %}
     <link rel="stylesheet" href="{% static 'home.css' %}">
@@ -7,72 +8,85 @@
 
 <body>
     <div class="flex-container">
-        <div id="logo" >
+        <div id="logo">
             <span class="speedometer"></span>
             <!-- pointer value between -90 and 90deg -->
-            <span id = 1 class="pointer" ></span>
+            <span id=0 class="pointer"></span>
             <!-- number value between 0 and 5000-->
             <h1 class="number"> 100 </h1>
         </div>
         <div id="logo">
             <span class="speedometer"></span>
-            <span class="pointer" style="--value: 45deg;"></span>
+            <span id=1 class="pointer"></span>
             <h1 class="number"> 20 </h1>
-        </div> 
+        </div>
         <div id="logo">
             <span class="speedometer"></span>
-            <span class="pointer" style="--value: 45deg;"></span>
+            <span id=2 class="pointer"></span>
             <h1 class="number"> 20 </h1>
-        </div> 
+        </div>
         <div id="logo">
             <span class="speedometer"></span>
-            <span class="pointer" style="--value: 45deg;"></span>
+            <span id=3 class="pointer"></span>
             <h1 class="number"> 20 </h1>
         </div>
-	<div id="logo">
+        <div id="logo">
             <span class="speedometer"></span>
-            <span class="pointer" style="--value: 45deg;"></span>
+            <span id=4 class="pointer"></span>
             <h1 class="number"> 20 </h1>
         </div>
-	<div id="logo">
+        <div id="logo">
             <span class="speedometer"></span>
-            <span class="pointer" style="--value: 45deg;"></span>
+            <span id=5 class="pointer"></span>
             <h1 class="number"> 20 </h1>
         </div>
-	<div id="logo">
+        <div id="logo">
             <span class="speedometer"></span>
-            <span class="pointer" style="--value: 45deg;"></span>
+            <span id=6 class="pointer"></span>
             <h1 class="number"> 20 </h1>
         </div>
-	<div id="logo">
+        <div id="logo">
             <span class="speedometer"></span>
-            <span class="pointer" style="--value: 45deg;"></span>
+            <span id=7 class="pointer"></span>
+            <h1 class="number"> 20 </h1>
+        </div>
+
+        <div id="logo">
+            <span class="speedometer"></span>
+            <span id=8 class="pointer"></span>
             <h1 class="number"> 20 </h1>
         </div>
     </div>
 
-    <div class="flex-video">  
-    	<img class="video" src="http://192.168.1.10:8000/stream/">
-    </div> 
+    <div class="flex-video">
+        <img class="video" src="http://192.168.1.10:8000/stream/">
+    </div>
 
-	<script>
-		function getData() {
-			console.log('getData');    				
-			const xmlhttp = new XMLHttpRequest();
-    		const url = "http://192.168.1.10:8000/sps/data";
-    		xmlhttp.onreadystatechange = function() {
-        		if (this.readyState == 4 && this.status == 200) {
-            		const data = JSON.parse(this.responseText);
-            		console.log(data);
-					document.getElementById("1").style="--value: "+ Object.values(data)[0] + "deg";
+    <script>
+        Number.prototype.map = function (in_min, in_max, out_min, out_max) {
+            return (this - in_min) * (out_max - out_min) / (in_max - in_min) + out_min;
+        }
+
+        function getData() {
+            console.log('getData');
+            const xmlhttp = new XMLHttpRequest();
+            const url = "http://192.168.1.10:8000/sps/data";
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    const data = JSON.parse(this.responseText);
+                    console.log(data);
+                    for(var i = 0 in obj){
+                        document.getElementById(i).style = "--value: " + map(Object.values(data)[i], 0, 500, -90, 90) + "deg";
+                    }
                     console.log(Object.values(data)[0]);
-                    setTimeout(getData, 3*1000);
-        		}
-   			}
-    		xmlhttp.open("GET", url, true);
-    		xmlhttp.send();
-		}
-		getData();
+                    setTimeout(getData, 3 * 1000);
+                }
+            }
+            xmlhttp.open("GET", url, true);
+            xmlhttp.send();
+        }
+        getData();
     </script>
 </body>
+
 </html>
