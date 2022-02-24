@@ -80,7 +80,7 @@
                 if (this.readyState == 4 && this.status == 200) {
                     const data = JSON.parse(this.responseText);
                     console.log(data);
-                    for(let key = 0 ;key < 9;key++){
+                    for(let key = 0 ;key < 9; key++){
                         var deg_value = Math.abs(Object.values(data)[key]);
                         if(deg_value > 500){
                             var deg_value = 500;
@@ -96,7 +96,7 @@
                             document.getElementById("speedometer"+key).style.borderColor = "#ffff00";
                             document.getElementById("speedometer"+key).style.borderRightColor = "#ffffff";
                             document.getElementById("speedometer"+key).style.borderBottomColor = "#ffffff";
-                        }
+                        } 
                         else if(Data_value > 100 && Data_value < 150){
                             document.getElementById("speedometer"+key).style.borderColor = "##ffcc00";
                             document.getElementById("speedometer"+key).style.borderRightColor = "#ffffff";
