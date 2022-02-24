@@ -18,42 +18,42 @@
         <div id="logo">
             <span class="speedometer"></span>
             <span id="1" class="pointer"></span>
-            <h1 id = "number1" class="number"> 20 </h1>
+            <h1 id = "number1" class="number"></h1>
         </div>
         <div id="logo">
             <span class="speedometer"></span>
             <span id="2" class="pointer"></span>
-            <h1 id = "number2" class="number"> 20 </h1>
+            <h1 id = "number2" class="number"></h1>
         </div>
         <div id="logo">
             <span class="speedometer"></span>
             <span id="3" class="pointer"></span>
-            <h1 id = "number3" class="number"> 20 </h1>
+            <h1 id = "number3" class="number"></h1>
         </div>
         <div id="logo">
             <span class="speedometer"></span>
             <span id="4" class="pointer"></span>
-            <h1 id = "number4" class="number"> 20 </h1>
+            <h1 id = "number4" class="number"></h1>
         </div>
         <div id="logo">
             <span class="speedometer"></span>
             <span id="5" class="pointer"></span>
-            <h1 id = "number5" class="number"> 20 </h1>
+            <h1 id = "number5" class="number"></h1>
         </div>
         <div id="logo">
             <span class="speedometer"></span>
             <span id="6" class="pointer"></span>
-            <h1 id = "number6" class="number"> 20 </h1>
+            <h1 id = "number6" class="number"></h1>
         </div>
         <div id="logo">
             <span class="speedometer"></span>
             <span id="7" class="pointer"></span>
-            <h1 id = "number7" class="number"> 20 </h1>
+            <h1 id = "number7" class="number"></h1>
         </div>
         <div id="logo">
             <span class="speedometer"></span>
             <span id="8" class="pointer"></span>
-            <h1 id = "number8" class="number"> 20 </h1>
+            <h1 id = "number8" class="number"></h1>
         </div>
     </div>
 
@@ -74,7 +74,12 @@
                     const data = JSON.parse(this.responseText);
                     console.log(data);
                     for(var i = 0; i<=8; i++){
-			            var deg_value = map(Math.abs(Object.values(data)[i]), 0, 500, -90, 90);
+                        var Data_deg = Math.abs(Object.values(data)[i]);
+                        if(Data_deg > 500){
+                            var Data_deg = 500;
+                        }
+			            var deg_value = map(Data_deg, 0, 500, -90, 90);
+                        
                         document.getElementById(i).style = "--value: " + deg_value + "deg";
                         document.getElementById("number"+i).innerHTML = Object.keys(data)[i] + Object.values(data)[i];
                     }
