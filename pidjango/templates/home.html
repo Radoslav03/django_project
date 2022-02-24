@@ -13,53 +13,54 @@
             <!-- pointer value between -90 and 90deg -->
             <span id="0" class="pointer"></span>
             <!-- number value between 0 and 5000-->
-            <h1 id = "number0" class="number"></h1>
+            <h1 id="number0" class="number"></h1>
         </div>
         <div id="logo">
-            <span id = "speedometer1" class="speedometer"></span>
+            <span id="speedometer1" class="speedometer"></span>
             <span id="1" class="pointer"></span>
-            <h1 id = "number1" class="number"></h1>
+            <h1 id="number1" class="number"></h1>
         </div>
         <div id="logo">
-            <span id = "speedometer2" class="speedometer"></span>
+            <span id="speedometer2" class="speedometer"></span>
             <span id="2" class="pointer"></span>
-            <h1 id = "number2" class="number"></h1>
+            <h1 id="number2" class="number"></h1>
         </div>
         <div id="logo">
-            <span id = "speedometer3" class="speedometer"></span>
+            <span id="speedometer3" class="speedometer"></span>
             <span id="3" class="pointer"></span>
-            <h1 id = "number3" class="number"></h1>
+            <h1 id="number3" class="number"></h1>
         </div>
         <div id="logo">
-            <span id = "speedometer4" class="speedometer"></span>
+            <span id="speedometer4" class="speedometer"></span>
             <span id="4" class="pointer"></span>
-            <h1 id = "number4" class="number"></h1>
+            <h1 id="number4" class="number"></h1>
         </div>
         <div id="logo">
-            <span id = "speedometer5" class="speedometer"></span>
+            <span id="speedometer5" class="speedometer"></span>
             <span id="5" class="pointer"></span>
-            <h1 id = "number5" class="number"></h1>
+            <h1 id="number5" class="number"></h1>
         </div>
         <div id="logo">
-            <span id = "speedometer6" class="speedometer"></span>
+            <span id="speedometer6" class="speedometer"></span>
             <span id="6" class="pointer"></span>
-            <h1 id = "number6" class="number"></h1>
+            <h1 id="number6" class="number"></h1>
         </div>
         <div id="logo">
-            <span id = "speedometer7" class="speedometer"></span>
+            <span id="speedometer7" class="speedometer"></span>
             <span id="7" class="pointer"></span>
-            <h1 id = "number7" class="number"></h1>
+            <h1 id="number7" class="number"></h1>
         </div>
         <div id="logo">
-            <span id = "speedometer8" class="speedometer"></span>
+            <span id="speedometer8" class="speedometer"></span>
             <span id="8" class="pointer"></span>
-            <h1 id = "number8" class="number"></h1>
+            <h1 id="number8" class="number"></h1>
         </div>
 
         <div>
-            <div id="battery" >
-                <div id = "battery-percentage" style="margin-left: 40px; margin-top: 8.6px;"> 50% </div>
-                <div id = "battery-level" class="battery-level" style="width: 50%; background-color: rgb(30, 255, 0);"> </div>
+            <div id="battery">
+                <div id="battery-percentage" style="margin-left: 40px; margin-top: 8.6px;"> 50% </div>
+                <div id="battery-level" class="battery-level" style="width: 50%; background-color: rgb(30, 255, 0);">
+                </div>
             </div>
         </div>
     </div>
@@ -69,10 +70,10 @@
     </div>
 
     <script>
-	function map(value, low1, high1, low2, high2) {
-    		return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
-	}
-	function getData() {
+        function map(value, low1, high1, low2, high2) {
+            return low2 + (high2 - low2) * (value - low1) / (high1 - low1);
+        }
+        function getData() {
             console.log('getData');
             const xmlhttp = new XMLHttpRequest();
             const url = "http://192.168.1.10:8000/sps/data";
@@ -80,45 +81,45 @@
                 if (this.readyState == 4 && this.status == 200) {
                     const data = JSON.parse(this.responseText);
                     console.log(data);
-                    for(let key = 0 ;key < 9; key++){
+                    for (let key = 0; key < 9; key++) {
                         var deg_value = Math.abs(Object.values(data)[key]);
-                        if(deg_value > 500){
+                        if (deg_value > 500) {
                             var deg_value = 500;
                         }
-			            deg_value = map(deg_value, 0, 500, -90, 90);
+                        deg_value = map(deg_value, 0, 500, -90, 90);
                         var Data_value = Math.abs(Object.values(data)[key]);
-                        if(Data_value < 50){
-                            document.getElementById("speedometer"+key).style.borderColor = "#09ff00";
-                            document.getElementById("speedometer"+key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer"+key).style.borderBottomColor = "#ffffff";
+                        if (Data_value < 50) {
+                            document.querySelector("speedometer" + key).style.borderColor = "#09ff00";
+                            document.querySelector("speedometer" + key).style.borderRightColor = "#ffffff";
+                            document.querySelector("speedometer" + key).style.borderBottomColor = "#ffffff";
                         }
-                        else if(Data_value > 50 && Data_value < 100){
-                            document.getElementById("speedometer"+key).style.borderColor = "#ffff00";
-                            document.getElementById("speedometer"+key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer"+key).style.borderBottomColor = "#ffffff";
-                        } 
-                        else if(Data_value > 100 && Data_value < 150){
-                            document.getElementById("speedometer"+key).style.borderColor = "##ffcc00";
-                            document.getElementById("speedometer"+key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer"+key).style.borderBottomColor = "#ffffff";
+                        else if (Data_value > 50 && Data_value < 100) {
+                            document.querySelector("speedometer" + key).style.borderColor = "#ffff00";
+                            document.querySelector("speedometer" + key).style.borderRightColor = "#ffffff";
+                            document.querySelector("speedometer" + key).style.borderBottomColor = "#ffffff";
                         }
-                        else if(Data_value > 150 && Data_value < 200){
-                            document.getElementById("speedometer"+key).style.borderColor = "#ff0000";
-                            document.getElementById("speedometer"+key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer"+key).style.borderBottomColor = "#ffffff";
+                        else if (Data_value > 100 && Data_value < 150) {
+                            document.querySelector("speedometer" + key).style.borderColor = "##ffcc00";
+                            document.querySelector("speedometer" + key).style.borderRightColor = "#ffffff";
+                            document.querySelector("speedometer" + key).style.borderBottomColor = "#ffffff";
                         }
-                        else if(Data_value > 200 && Data_value < 300){
-                            document.getElementById("speedometer"+key).style.borderColor = "#800046";
-                            document.getElementById("speedometer"+key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer"+key).style.borderBottomColor = "#ffffff";
+                        else if (Data_value > 150 && Data_value < 200) {
+                            document.querySelector("speedometer" + key).style.borderColor = "#ff0000";
+                            document.querySelector("speedometer" + key).style.borderRightColor = "#ffffff";
+                            document.querySelector("speedometer" + key).style.borderBottomColor = "#ffffff";
                         }
-                        else if(Data_value > 300){
-                            document.getElementById("speedometer"+key).style.borderColor = "#300014";
-                            document.getElementById("speedometer"+key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer"+key).style.borderBottomColor = "#ffffff";
+                        else if (Data_value > 200 && Data_value < 300) {
+                            document.querySelector("speedometer" + key).style.borderColor = "#800046";
+                            document.querySelector("speedometer" + key).style.borderRightColor = "#ffffff";
+                            document.querySelector("speedometer" + key).style.borderBottomColor = "#ffffff";
+                        }
+                        else if (Data_value > 300) {
+                            document.querySelector("speedometer" + key).style.borderColor = "#300014";
+                            document.querySelector("speedometer" + key).style.borderRightColor = "#ffffff";
+                            document.querySelector("speedometer" + key).style.borderBottomColor = "#ffffff";
                         }
                         document.getElementById(key).style = "--value: " + deg_value + "deg";
-                        document.getElementById("number"+key).innerHTML = Object.keys(data)[key]+ " " + Object.values(data)[key];
+                        document.getElementById("number" + key).innerHTML = Object.keys(data)[key] + " " + Object.values(data)[key];
                     }
                     console.log(Object.values(data)[0]);
                     setTimeout(getData, 1 * 1000);
