@@ -80,7 +80,7 @@
                 if (this.readyState == 4 && this.status == 200) {
                     const data = JSON.parse(this.responseText);
                     console.log(data);
-                    for(var key in data){
+                    for(var key = 0 ;key < 8;key++){
                         var Data_deg = Math.abs(Object.values(data)[key]);
                         if(Data_deg > 500){
                             var Data_deg = 500;
