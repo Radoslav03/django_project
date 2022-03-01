@@ -122,7 +122,7 @@
                         document.getElementById("number" + key).innerHTML = Object.keys(data)[key] + " " + Object.values(data)[key];
                     }
                     console.log(Object.values(data)[0]);
-                    setTimeout(getData, 1 * 1000);
+                    setTimeout(getData, 200);
                 }
             }
             xmlhttp.open("GET", url, true);
