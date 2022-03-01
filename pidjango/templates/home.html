@@ -121,11 +121,11 @@
                         document.getElementById(key).style = "--value: " + deg_value + "deg";
                         document.getElementById("number" + key).innerHTML = Object.keys(data)[key] + "<br>" + Object.values(data)[key];
                     }
-                    var voltage = Math.abs(Object.values(data)[9]);
+                    var voltage = Object.values(data)[9];
                     var batteryLevel = map(voltage, 10, 12.6 , 0 , 100) ;
                     console.log(batteryLevel);
                     document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
-                    document.getElementById("battery-level").style.width = batteryLevel + "px";
+                    document.getElementById("battery-level").style.width = batteryLevel + "%";
                     if(batteryLevel > 0  && batteryLevel < 15){
                         document.getElementById("battery-level").style.backgroundColor = "FF0000";
                     }
