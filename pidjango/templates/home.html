@@ -124,7 +124,7 @@
                     var voltage = Object.values(data)[9];
                     var batteryLevel = map(voltage, 10, 12.6 , 0 , 100) ;
                     console.log(batteryLevel);
-                    document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
+                    document.getElementById("battery-percentage").innerHTML = parseInt(batteryLevel,10) + "%";
                     if(batteryLevel > 0  && batteryLevel < 15){
                         document.getElementById("battery-level").style.background = "FF0000";
                     }
