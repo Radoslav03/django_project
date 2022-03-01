@@ -121,7 +121,7 @@
                         document.getElementById(key).style = "--value: " + deg_value + "deg";
                         document.getElementById("number" + key).innerHTML = Object.keys(data)[key] + "<br>" + Object.values(data)[key];
                     }
-                    var voltage = Object.value(data)[9];
+                    var voltage = Object.values(data)[9];
                     var batteryLevel = map(voltage, 0, 100 , 10 , 12.6) ;
                     document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
                     document.getElementById("battery-level").style.width = batteryLevel + "px";
