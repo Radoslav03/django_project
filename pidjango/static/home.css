@@ -13,9 +13,13 @@
     position: relative;
 }
 #logo .speedometer {
+
     width: 80px;
     height: 80px;
     border-radius: 100%;
+    border-color: #09ff00;
+    border-right-color: rgb(255,255,255);
+    border-bottom-color: rgb(255,255,255);
     transform: rotate(45deg);
     display: inline-block;
 }
