@@ -89,34 +89,34 @@
                         deg_value = map(deg_value, 0, 500, -90, 90);
                         var Data_value = Math.abs(Object.values(data)[key]);
                         if (Data_value < 50) {
-                            document.getElementById("speedometer" + key).style.borderColor = "#09ff00";
-                            document.getElementById("speedometer" + key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer" + key).style.borderBottomColor = "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderColor =  solid + "#09ff00";
+                            document.getElementById("speedometer" + key).style.borderRightColor = solid + "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderBottomColor = solid + "#ffffff";
                         }
                         else if (Data_value > 50 && Data_value < 100) {
-                            document.getElementById("speedometer" + key).style.borderColor = "#ffff00";
-                            document.getElementById("speedometer" + key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer" + key).style.borderBottomColor = "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderColor = solid + "#ffff00";
+                            document.getElementById("speedometer" + key).style.borderRightColor =  solid + "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderBottomColor = solid + "#ffffff";
                         }
                         else if (Data_value > 100 && Data_value < 150) {
-                            document.getElementById("speedometer" + key).style.borderColor = "##ffcc00";
-                            document.getElementById("speedometer" + key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer" + key).style.borderBottomColor = "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderColor = solid + "##ffcc00";
+                            document.getElementById("speedometer" + key).style.borderRightColor = solid + "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderBottomColor = solid + "#ffffff";
                         }
                         else if (Data_value > 150 && Data_value < 200) {
-                            document.getElementById("speedometer" + key).style.borderColor = "#ff0000";
-                            document.getElementById("speedometer" + key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer" + key).style.borderBottomColor = "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderColor =  solid + "#ff0000";
+                            document.getElementById("speedometer" + key).style.borderRightColor = solid + "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderBottomColor = solid + "#ffffff";
                         }
                         else if (Data_value > 200 && Data_value < 300) {
-                            document.getElementById("speedometer" + key).style.borderColor = "#800046";
-                            document.getElementById("speedometer" + key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer" + key).style.borderBottomColor = "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderColor = solid + "#800046";
+                            document.getElementById("speedometer" + key).style.borderRightColor = solid + "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderBottomColor = solid + "#ffffff";
                         }
                         else if (Data_value > 300) {
-                            document.getElementById("speedometer" + key).style.borderColor = "#300014";
-                            document.getElementById("speedometer" + key).style.borderRightColor = "#ffffff";
-                            document.getElementById("speedometer" + key).style.borderBottomColor = "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderColor = solid + "#300014";
+                            document.getElementById("speedometer" + key).style.borderRightColor = solid + "#ffffff";
+                            document.getElementById("speedometer" + key).style.borderBottomColor = solid + "#ffffff";
                         }
                         document.getElementById(key).style = "--value: " + deg_value + "deg";
                         document.getElementById("number" + key).innerHTML = Object.keys(data)[key] + " " + Object.values(data)[key];
