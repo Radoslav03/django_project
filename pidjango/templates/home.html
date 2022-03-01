@@ -122,7 +122,7 @@
                         document.getElementById("number" + key).innerHTML = Object.keys(data)[key] + "<br>" + Object.values(data)[key];
                     }
                     var voltage = Math.abs(Object.values(data)[9]);
-                    var batteryLevel = map(voltage, 0, 100 , 10 , 12.6) ;
+                    var batteryLevel = map(voltage, 10, 12.6 , 0 , 100) ;
                     console.log(batteryLevel);
                     document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
                     document.getElementById("battery-level").style.width = batteryLevel + "px";
