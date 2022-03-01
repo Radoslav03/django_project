@@ -125,7 +125,6 @@
                     var batteryLevel = map(voltage, 10, 12.6 , 0 , 100) ;
                     console.log(batteryLevel);
                     document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
-                    document.getElementById("battery-level").style.width = batteryLevel + "%";
                     if(batteryLevel > 0  && batteryLevel < 15){
                         document.getElementById("battery-level").style.backgroundColor = "FF0000";
                     }
@@ -135,6 +134,8 @@
                     if(batteryLevel >=50 ){
                         document.getElementById("battery-level").style.backgroundColor = "00FF00"; 
                     }
+                    document.getElementById("battery-level").style.width = batteryLevel + "%";
+                    
                     setTimeout(getData, 3000);
                 }
             }
