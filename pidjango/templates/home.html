@@ -58,8 +58,8 @@
 
         <div>
             <div id="battery">
-                <div id="battery-percentage" style="margin-left: 40px; margin-top: 8.6px;"> 50% </div>
-                <div id="battery-level" class="battery-level" style="width: 50%; background-color: rgb(30, 255, 0);">
+                <div id="battery-percentage" style="margin-left: 40px; margin-top: 8.6px;"></div>
+                <div id="battery-level" class="battery-level">
                 </div>
             </div>
         </div>
@@ -93,36 +93,48 @@
                             document.getElementById("speedometer" + key).style.borderRight = "20px solid #ffffff";
                             document.getElementById("speedometer" + key).style.borderBottom = "20px solid #ffffff";
                         }
-                        else if (Data_value > 50 && Data_value < 100) {
+                        else if (Data_value >= 50 && Data_value < 100) {
                             document.getElementById("speedometer" + key).style.border = "20px solid #ffff00";
                             document.getElementById("speedometer" + key).style.borderRight =  "20px solid #ffffff";
                             document.getElementById("speedometer" + key).style.borderBottom = "20px solid #ffffff";
                         }
-                        else if (Data_value > 100 && Data_value < 150) {
+                        else if (Data_value >= 100 && Data_value < 150) {
                             document.getElementById("speedometer" + key).style.border = "20px solid ##ffcc00";
                             document.getElementById("speedometer" + key).style.borderRight = "20px solid #ffffff";
                             document.getElementById("speedometer" + key).style.borderBottom = "20px solid #ffffff";
                         }
-                        else if (Data_value > 150 && Data_value < 200) {
+                        else if (Data_value >= 150 && Data_value < 200) {
                             document.getElementById("speedometer" + key).style.border =  "20px solid #ff0000";
                             document.getElementById("speedometer" + key).style.borderRight = "20px solid #ffffff";
                             document.getElementById("speedometer" + key).style.borderBottom = "20px solid #ffffff";
                         }
-                        else if (Data_value > 200 && Data_value < 300) {
+                        else if (Data_value >= 200 && Data_value < 300) {
                             document.getElementById("speedometer" + key).style.border = "20px solid #800046";
                             document.getElementById("speedometer" + key).style.borderRight = "20px solid #ffffff";
                             document.getElementById("speedometer" + key).style.borderBottom = "20px solid #ffffff";
                         }
-                        else if (Data_value > 300) {
+                        else if (Data_value >= 300) {
                             document.getElementById("speedometer" + key).style.border = "20px solid #300014";
                             document.getElementById("speedometer" + key).style.borderRight = "20px solid #ffffff";
                             document.getElementById("speedometer" + key).style.borderBottom = "20px solid #ffffff";
                         }
                         document.getElementById(key).style = "--value: " + deg_value + "deg";
-                        document.getElementById("number" + key).innerHTML = Object.keys(data)[key] + " " + Object.values(data)[key];
+                        document.getElementById("number" + key).innerHTML = Object.keys(data)[key] + "<br>" + Object.values(data)[key];
                     }
-                    console.log(Object.values(data)[0]);
-                    setTimeout(getData, 200);
+                    
+                    var batteryLevel = map(Object.value(data)[9], 0, 100 , 10 , 12.6) ;
+                    document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
+                    document.getElementById("battery-level").style.width = batteryLevel + "px";
+                    if(batteryLevel > 0  && batteryLevel < 15){
+                        document.getElementById("battery-level").style.backgroundColor = "FF0000";
+                    }
+                    if(batteryLevel >= 15 && batteryLevel < 50){
+                        document.getElementById("battery-level").style.backgroundColor = "FFFF00"; 
+                    }
+                    if(batteryLevel >=50 ){
+                        document.getElementById("battery-level").style.backgroundColor = "00FF00"; 
+                    }
+                    setTimeout(getData, 3000);
                 }
             }
             xmlhttp.open("GET", url, true);
