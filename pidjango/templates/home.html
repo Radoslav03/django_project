@@ -123,6 +123,7 @@
                     }
                     var voltage = Math.abs(Object.values(data)[9]);
                     var batteryLevel = map(voltage, 0, 100 , 10 , 12.6) ;
+                    console.log(batteryLevel);
                     document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
                     document.getElementById("battery-level").style.width = batteryLevel + "px";
                     if(batteryLevel > 0  && batteryLevel < 15){
