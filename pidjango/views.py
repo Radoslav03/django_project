@@ -60,7 +60,6 @@ def spsdata(request):
     ser.reset_input_buffer()
     while True:
         if ser.in_waiting > 0:
-            time.sleep(0.2)
             line = ser.readline().decode('utf-8').rstrip()
             if line == "sps_start":
                 data = {}
@@ -70,7 +69,7 @@ def spsdata(request):
                         print(data)
                         return JsonResponse(data)
                         #return render(request, 'sps.html',{"data":data})
-                        break;
+                        break
                     val = line.split(':', 2)
                     data[val[0]] = val[1].strip()
                     #data = data + line
