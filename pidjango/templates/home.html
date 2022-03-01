@@ -126,13 +126,13 @@
                     console.log(batteryLevel);
                     document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
                     if(batteryLevel > 0  && batteryLevel < 15){
-                        document.getElementById("battery-level").style.backgroundColor = "FF0000";
+                        document.getElementById("battery-level").style.background = "FF0000";
                     }
                     if(batteryLevel >= 15 && batteryLevel < 50){
-                        document.getElementById("battery-level").style.backgroundColor = "FFFF00"; 
+                        document.getElementById("battery-level").style.background = "FFFF00"; 
                     }
                     if(batteryLevel >=50 ){
-                        document.getElementById("battery-level").style.backgroundColor = "00FF00"; 
+                        document.getElementById("battery-level").style.background = "00FF00"; 
                     }
                     document.getElementById("battery-level").style.width = batteryLevel + "%";
                     
