@@ -59,7 +59,7 @@
         <div>
             <div id="battery">
                 <div id="battery-percentage" style="margin-left: 40px; margin-top: 8.6px;"></div>
-                <div id="battery-level" class="battery-level">
+                <div id="battery-level" class="battery-level" style="background-color: rgb(0, 255, 0);">
                 </div>
             </div>
         </div>
@@ -126,13 +126,13 @@
                     console.log(batteryLevel);
                     document.getElementById("battery-percentage").innerHTML = batteryLevel + "%";
                     if(batteryLevel > 0  && batteryLevel < 15){
-                        document.getElementById("battery-level").style = "background-color: FF0000";
+                        document.getElementById("battery-level").style.background = "FF0000";
                     }
                     if(batteryLevel >= 15 && batteryLevel < 50){
-                        document.getElementById("battery-level").style = "background-color: FFFF00"; 
+                        document.getElementById("battery-level").style.background = "FFFF00"; 
                     }
                     if(batteryLevel >=50 ){
-                        document.getElementById("battery-level").style = "background-color:d 00FF00"; 
+                        document.getElementById("battery-level").style.background = "00FF00"; 
                     }
                     document.getElementById("battery-level").style.width = batteryLevel + "%";
                     

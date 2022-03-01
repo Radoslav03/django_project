@@ -60,6 +60,7 @@ def spsdata(request):
     ser.reset_input_buffer()
     while True:
         if ser.in_waiting > 0:
+            time.sleep(0.2)
             line = ser.readline().decode('utf-8').rstrip()
             if line == "sps_start":
                 data = {}
