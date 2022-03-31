@@ -33,7 +33,7 @@ class StreamingOutput(object):
 def stream(request):
 
         def cam():
-                with picamera.PiCamera(resolution='1280x720', framerate=30) as camera:
+                with picamera.PiCamera(resolution='1920x1080', framerate=30) as camera:
                         output = StreamingOutput()
                         camera.start_recording(output, format='mjpeg')
                         camera.rotation = 180
@@ -68,12 +68,9 @@ def spsdata(request):
                     if line == "sps_stop":
                         print(data)
                         return JsonResponse(data)
-                        #return render(request, 'sps.html',{"data":data})
                         break
                     val = line.split(':', 2)
                     data[val[0]] = val[1].strip()
-                    #data = data + line
-                    #data.append(line)
 
 def sps(request):
     return render(request, 'sps.html')
